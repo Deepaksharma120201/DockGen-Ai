@@ -1,0 +1,31 @@
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+
+dotenv.config();
+connectDB();
+
+const apiRoutes = require('./routes/api'); 
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+app.use(express.json());
+
+app.use('/api', apiRoutes);
+
+app.get('/', (req, res) => {
+  res.send('Backend server is alive and running!');
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Backend server is running on http://localhost:${PORT}`);
+});

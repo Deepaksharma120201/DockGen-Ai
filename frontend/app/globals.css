@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222.2 84% 4.9%);
+  --color-border: hsl(240 5.9% 90%);
+  --color-muted: hsl(240 4.8% 95.9%);
+  --color-muted-foreground: hsl(240 3.8% 46.1%);
+}
+
+@layer base {
+  * {
+    @apply border-[--color-border];
+  }
+
+  body {
+    @apply bg-[--color-background] text-[--color-foreground];
+  }
+}
+

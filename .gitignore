@@ -1,0 +1,19 @@
+# Dependencies
+# Ignores all node_modules folders in any sub-directory
+node_modules/
+
+# Environment Files
+# Ignores .env files in any directory (like in /backend)
+.env
+# Ignores Next.js environment files (like in /frontend)
+.env.local
+
+# Next.js & Caches
+# Ignores the Next.js build cache
+.next/
+# Ignores the Turbopack cache
+.turbo/
+
+# OS-specific files (Good practice)
+.DS_Store
+Thumbs.db
