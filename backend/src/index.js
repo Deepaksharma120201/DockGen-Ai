@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const corsOptions = {
-  origin: 'https://dockgen-ai.onrender.com' || 'http://localhost:3000',
+  origin: ['https://dockgen-ai.onrender.com', 'http://localhost:3000'],
   optionsSuccessStatus: 200
 };
 
