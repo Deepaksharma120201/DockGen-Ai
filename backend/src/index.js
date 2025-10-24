@@ -11,9 +11,17 @@ const apiRoutes = require('./routes/api');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const ALLOWED_ORIGINS = [
+    'https://dockgen-ai.onrender.com', 
+    'http://localhost:3000',
+    'https://glowing-meme-4j7vj6vqq4rx3qvrx-8080.app.github.dev', 
+];
+
 const corsOptions = {
-  origin: ['https://dockgen-ai.onrender.com', 'http://localhost:3000'],
-  optionsSuccessStatus: 200
+    origin: ALLOWED_ORIGINS, 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
+    credentials: true, 
+    optionsSuccessStatus: 204 
 };
 
 app.use(cors(corsOptions));
