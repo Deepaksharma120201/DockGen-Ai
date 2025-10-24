@@ -120,8 +120,10 @@ export function GeneratorForm() {
               required
             />
           </div>
-          <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? "Generating & Building..." : "Generate & Build Image"}
+          <Button type="submit" 
+            className="w-full py-6 text-lg font-extrabold shadow-lg hover:shadow-xl" 
+            disabled={isLoading}
+          > {isLoading ? "Generating & Building..." : "Generate & Build Image"}
           </Button>
         </form>
 
