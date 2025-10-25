@@ -18,11 +18,20 @@ const ALLOWED_ORIGINS = [
 ];
 
 const corsOptions = {
-    origin: ALLOWED_ORIGINS, 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
-    credentials: true, 
-    optionsSuccessStatus: 204 
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (ALLOWED_ORIGINS.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log(`Blocked by CORS: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
 };
+
 
 app.use(cors(corsOptions));
 app.use(express.json());
